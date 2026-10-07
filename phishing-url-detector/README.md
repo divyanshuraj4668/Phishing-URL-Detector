@@ -111,4 +111,4 @@ bank-security-verify.com
 
 ## Author
 
-Student CSE project — developed for academic and portfolio purposes.
+**Divyanshu Raj**
