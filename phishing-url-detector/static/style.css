@@ -1,0 +1,84 @@
+:root {
+    font-family: Inter, Arial, sans-serif;
+    color: #172033;
+    background: #f5f7fb;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.container {
+    width: min(1000px, 92%);
+    margin: 0 auto;
+    padding: 55px 0;
+}
+.hero { text-align: center; margin-bottom: 30px; }
+.tag {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #5266d8;
+}
+h1 { font-size: clamp(34px, 6vw, 58px); margin: 10px 0; }
+.subtitle {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.7;
+    color: #667085;
+}
+.card, .info-card {
+    background: white;
+    border: 1px solid #e6e9f0;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(23,32,51,.06);
+}
+.card { padding: 28px; }
+label { display:block; font-weight: 700; margin-bottom: 10px; }
+.input-row { display:flex; gap:10px; }
+input {
+    flex:1;
+    padding: 15px 16px;
+    border: 1px solid #d5d9e2;
+    border-radius: 10px;
+    font-size: 16px;
+}
+button {
+    border: 0;
+    border-radius: 10px;
+    padding: 0 22px;
+    background: #172033;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+.result {
+    margin-top: 22px;
+    padding: 20px;
+    border-radius: 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.result.safe { background:#e9f8ef; }
+.result.danger { background:#fff0f0; }
+.result-label { font-size: 20px; font-weight: 800; }
+.result p { margin: 7px 0 0; color:#667085; }
+.icon {
+    width: 45px; height:45px; border-radius:50%;
+    display:grid; place-items:center;
+    background:white; font-size:24px; font-weight:800;
+}
+.info-grid {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:16px;
+    margin-top: 20px;
+}
+.info-card { padding:22px; }
+.info-card h3 { margin-top:0; }
+.info-card p { line-height:1.6; color:#667085; }
+footer { text-align:center; color:#98a2b3; margin-top:35px; font-size:14px; }
+
+@media (max-width: 700px) {
+    .input-row { flex-direction:column; }
+    button { padding:15px; }
+    .info-grid { grid-template-columns:1fr; }
+}

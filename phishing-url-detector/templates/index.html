@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing URL Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <section class="hero">
+            <p class="tag">ML + FLASK PROJECT</p>
+            <h1>Phishing URL Detector</h1>
+            <p class="subtitle">
+                Enter a URL and the machine-learning model will analyse basic URL characteristics
+                and classify it as likely legitimate or suspicious.
+            </p>
+        </section>
+
+        <section class="card">
+            <form method="POST">
+                <label for="url">Website URL</label>
+                <div class="input-row">
+                    <input id="url" name="url" type="text"
+                           placeholder="e.g. https://example.com"
+                           value="{{ url }}" required>
+                    <button type="submit">Analyse URL</button>
+                </div>
+            </form>
+
+            {% if result %}
+            <div class="result {{ 'danger' if result.is_phishing else 'safe' }}">
+                <div>
+                    <span class="result-label">{{ result.label }}</span>
+                    <p>Model confidence: <strong>{{ result.confidence }}%</strong></p>
+                </div>
+                <div class="icon">{{ '!' if result.is_phishing else '✓' }}</div>
+            </div>
+            {% endif %}
+        </section>
+
+        <section class="info-grid">
+            <div class="info-card">
+                <h3>How it works</h3>
+                <p>The app extracts URL features such as length, dots, subdomains, HTTPS usage,
+                IP addresses and suspicious keywords.</p>
+            </div>
+            <div class="info-card">
+                <h3>Model</h3>
+                <p>A Random Forest classifier is trained with the bundled educational dataset
+                and saved locally using joblib.</p>
+            </div>
+            <div class="info-card">
+                <h3>Important</h3>
+                <p>This is an educational project, not a production security scanner or a
+                replacement for browser security tools.</p>
+            </div>
+        </section>
+
+        <footer>
+            Student project • Python • Scikit-learn • Flask
+        </footer>
+    </main>
+</body>
+</html>
